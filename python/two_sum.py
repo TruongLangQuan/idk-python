@@ -8,11 +8,9 @@ class Solution:
             num_map[num] = i
         return []
 
-mylist = list(map(int,input("Input:").split()))
-
-target = int(input("Input tg:"))
+idk = input()
+mylist = list(map(int, idk[1:-1].split(',')))
+target = int(input())
 
 solution = Solution()
 result = solution.twoSum(mylist,target)
-
-print(result)
