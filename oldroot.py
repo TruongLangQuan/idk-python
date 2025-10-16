@@ -1,5 +1,4 @@
 import string
-import tkinter
 import python_library 
 
 def ceasar(text:str,shift:int,mode:int):
@@ -8,13 +7,14 @@ def ceasar(text:str,shift:int,mode:int):
     if mode == 2:
         shift = -shift
 
-    for i,ch in enumerate(text):
-        if ch.isalpha():
-            is_upper = ch.isupper()
+    if mode == 1:
+        for i,ch in enumerate(text):
+            if ch.isalpha():
+                is_upper = ch.isupper()
 
-            base = ord(ch) - ord("A") if is_upper else ord("a")
-            after = (ord(ch) - base + shift) % 26
-            result += after
+                base = ord(ch) - ord("A") if is_upper else ord("a")
+                after = (ord(ch) - base + shift) % 26
+                result += after
         else:
             result += ch
     return result
@@ -22,13 +22,14 @@ def ceasar(text:str,shift:int,mode:int):
 def vigenere(text:str,key:str,mode:int):
     result = ''
 
-    for i,ch in enumerate(text):
-        if ch.isalpha():
-            is_upper = ch.isupper()
-
-            base = ord(ch) - ord("A") if is_upper else ord("a")
-            key_char = key[i % len(key)].lower()
-            shift = ord(key_char) - ord("a")
+    if mode == 1:
+        for i,ch in enumerate(text):
+            if ch.isalpha():
+                is_upper = ch.isupper()
+                
+                base = ord(ch) - ord("A") if is_upper else ord("a")
+                key_char = key[i % len(key)].lower()
+                shift = ord(key_char) - ord("a")
             
             if mode == 2:
                 shift = -shift
@@ -39,9 +40,18 @@ def vigenere(text:str,key:str,mode:int):
             result += ch
     return result
 
-def aibash(text:str,mode:int):
+def atbash(text:str):
     result = ''
-
+    
     for i,ch in enumerate(text):
         if ch.isalpha():
-            pass
+            is_upper = ch.isupper()
+            if is_upper:
+                base = ord(ch) - ord("A")
+                result += chr(ord("Z") - base)
+            else:
+                base = ord(ch) - ord("a")
+                result += chr(ord("z") - base)
+        else:
+            result += ch
+    return result
