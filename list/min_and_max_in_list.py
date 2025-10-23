@@ -1,4 +1,5 @@
-danhsach = [1,2,3,4,5]
+n = input()
+danhsach = list(map(int,n.split()))
 lonnhat = max(danhsach)
 nhonhat = min(danhsach)
 print(f"Max:{lonnhat}---Min:{nhonhat}")
