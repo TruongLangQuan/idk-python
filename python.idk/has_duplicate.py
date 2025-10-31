@@ -1,8 +1,9 @@
+from typing import List
 class Solution:
-    def hasDuplicate(self, nums: List[int]) -> bool:
-        count = 0
-        
-        for dupe in nums:
-            if nums.count(dupe) > 1:
-                return True
-        return False
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        sortnums = nums.sort()
+
+        for i in range(1,len(nums)):
+            if nums[i] == nums[i - 1]:
+                return False
+        return True
