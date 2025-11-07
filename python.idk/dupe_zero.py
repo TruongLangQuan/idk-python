@@ -9,4 +9,4 @@ class Solution:
             if arr[i] != 0:
                 i += 1
             else:
-                
+                arr.append(0)
