@@ -1,18 +1,21 @@
 def diem(arr):
     result = 0
+    temp = 0
     
     for i in arr:
-        result += int(i)
-        if result >= 200:
-            break
+        for val in i:
+            temp += val
+            if temp >= 200:
+                result = temp
+                return result
     return result
 
 arr = []
 with open("pumpks.inp", "r") as f:
     for i in f:
         n = list(map(int, i.split()))
-    arr.append(n)
+        arr.append(n)
 
 with open("pumpks.out",'w') as f:
-    f.write(diem(arr))
+    f.write(str(diem(arr)))
     
