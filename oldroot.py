@@ -1,5 +1,4 @@
 import string
-import python_library 
 
 def ceasar(text:str,shift:int,mode:int):
     result = ''
@@ -55,3 +54,19 @@ def atbash(text:str):
         else:
             result += ch
     return result
+
+def main():
+    modelist = ['I:Ceasar','II:Vigenere','III:Atbash']
+    print(modelist)
+
+    mode = int(input("Choose mode:"))
+
+    if mode < 0 or mode > 3:
+        return "Ko hop le"
+    
+    if mode == 1:
+        text, step, mode = str(input("Text:")), int(input("Step:")), int(input("Mode:"))
+        return ceasar(text,step,mode)
+
+
+main()
