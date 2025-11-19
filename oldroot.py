@@ -56,6 +56,8 @@ def atbash(text:str):
     return result
 
 def main():
+    result = ''
+    
     modelist = ['I:Ceasar','II:Vigenere','III:Atbash']
     print(modelist)
 
@@ -66,7 +68,7 @@ def main():
     
     if mode == 1:
         text, step, mode = str(input("Text:")), int(input("Step:")), int(input("Mode:"))
-        return ceasar(text,step,mode)
-
+        result = ceasar(text,step,mode)
+        return result
 
 main()
