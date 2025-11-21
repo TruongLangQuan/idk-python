@@ -13,7 +13,7 @@ def ceasar(text:str,shift:int,mode:int):
 
                 base = ord(ch) - ord("A") if is_upper else ord("a")
                 after = (ord(ch) - base + shift) % 26
-                result += after
+                result += str(after)
         else:
             result += ch
     return result
@@ -68,7 +68,6 @@ def main():
     
     if mode == 1:
         text, step, mode = str(input("Text:")), int(input("Step:")), int(input("Mode:"))
-        result = ceasar(text,step,mode)
-        return result
+        print(ceasar(text,step,mode))
 
 main()
