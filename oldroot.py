@@ -1,4 +1,5 @@
 import string
+from turtle import clear
 
 def ceasar(text:str,shift:int,mode:int):
     result = ''
@@ -55,21 +56,21 @@ def atbash(text:str):
             result += ch
     return result
 
-def chedo(mode):
-    print("I:Ceasar  II:Vigenere  III:Atbash")
-    return mode
-
 def main():
     result = ""
     
+    print("I:Ceasar  II:Vigenere  III:Atbash")
+    mode = int(input("Choose:"))
+
     if mode == 1:
+        clear()
+        print("Ceasar")
         text = str(input("Text:"))
         step = int(input("Step:"))
-        mode = int(input("Step:"))
+        mode = int(input("Mode:"))
         
         result = ceasar(text,step,mode)
 
-    return result
+    print(result)
 
-mode = chedo(int(input("Choose:")))
 main()
