@@ -55,19 +55,21 @@ def atbash(text:str):
             result += ch
     return result
 
+def chedo(mode):
+    print("I:Ceasar  II:Vigenere  III:Atbash")
+    return mode
+
 def main():
-    result = ''
-    
-    modelist = ['I:Ceasar','II:Vigenere','III:Atbash']
-    print(modelist)
-
-    mode = int(input("Choose mode:"))
-
-    if mode < 0 or mode > 3:
-        return "Ko hop le"
+    result = ""
     
     if mode == 1:
-        text, step, mode = str(input("Text:")), int(input("Step:")), int(input("Mode:"))
-        print(ceasar(text,step,mode))
+        text = str(input("Text:"))
+        step = int(input("Step:"))
+        mode = int(input("Step:"))
+        
+        result = ceasar(text,step,mode)
 
+    return result
+
+mode = chedo(int(input("Choose:")))
 main()
