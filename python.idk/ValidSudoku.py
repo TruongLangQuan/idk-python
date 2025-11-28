@@ -11,8 +11,8 @@ class Solution:
                 if board[c,r] == ".":
                     continue
         
-
-board_idk = [["1","2",".",".","3",".",".",".","."],
+def main():
+    board_idk = [["1","2",".",".","3",".",".",".","."],
  ["4",".",".","5",".",".",".",".","."],
  [".","9","8",".",".",".",".",".","3"],
  ["5",".",".",".","6",".",".",".","4"],
@@ -32,7 +32,7 @@ board_lmao = [["1","2",".",".","3",".",".",".","."],
  [".",".",".","4","1","9",".",".","8"],
  [".",".",".",".","8",".",".","7","9"]]
 
-idk = Solution()
+print(Solution().isValidSudoku(board_idk))
+print(Solution().isValidSudoku(board_lmao))
 
-print(idk.isValidSudoku(board_idk))
-print(idk.isValidSudoku(board_lmao))
+main()
