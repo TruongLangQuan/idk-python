@@ -1,16 +1,23 @@
+from collections import defaultdict
 from typing import List
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        rows = defdict(set) # type: ignore
-        cols = defdict(set) # type: ignore
-        squares = defdict(set) # type: ignore
+        rows = defaultdict(set)
+        cols = defaultdict(set)
+        squares = defaultdict(set)
 
         for r in range(9):
             for c in range(9):
-                if board[c,r] == ".":
+                if board[r][c] == ".":
                     continue
-        
+                if (board[r][c] in rows[r]) or (board[r][c] in cols[c]) or (board[r][c] in squares[(r // 3, c // 3)]):
+                    return False
+                rows[r].add(board[r][c])
+                cols[c].add(board[r][c])
+                squares[(r // 3, c // 3)].add(board[r][c])
+        return True
+    
 def main():
     board_idk = [["1","2",".",".","3",".",".",".","."],
  ["4",".",".","5",".",".",".",".","."],
@@ -21,8 +28,8 @@ def main():
  [".",".",".",".",".",".","2",".","."],
  [".",".",".","4","1","9",".",".","8"],
  [".",".",".",".","8",".",".","7","9"]]
-
-board_lmao = [["1","2",".",".","3",".",".",".","."],
+    
+    board_lmao = [["1","2",".",".","3",".",".",".","."],
  ["4",".",".","5",".",".",".",".","."],
  [".","9","1",".",".",".",".",".","3"],
  ["5",".",".",".","6",".",".",".","4"],
@@ -31,8 +38,7 @@ board_lmao = [["1","2",".",".","3",".",".",".","."],
  [".",".",".",".",".",".","2",".","."],
  [".",".",".","4","1","9",".",".","8"],
  [".",".",".",".","8",".",".","7","9"]]
-
-print(Solution().isValidSudoku(board_idk))
-print(Solution().isValidSudoku(board_lmao))
+    
+    return Solution().isValidSudoku(board_idk) and Solution().isValidSudoku(board_lmao)
 
 main()
